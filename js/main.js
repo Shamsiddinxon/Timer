@@ -15,10 +15,6 @@ elStopBtn.classList.add("none");
 
 updateTime(sekund)
 
-if (sekund === 0) {
-    sekund = 1500
-}
-
 //forum add
 elSettingBtn.addEventListener("click", () => {
     elForm.classList.remove("none");
@@ -53,8 +49,7 @@ elStartBtn.addEventListener("click", () => {
     elStopBtn.classList.remove("none");
 
     console.log(sekund);
-    statusbar(sekund)
-
+    start(sekund)
 
 })
 
@@ -63,12 +58,8 @@ elStopBtn.addEventListener("click", () => {
     elStopBtn.classList.add("none");
     elStartBtn.classList.remove("none");
 
-    // setInterval = clearInterval(setInterval);
-    // setInterval(function () {
-    //     sekund
-    //     updateTime(sekund)
-
-    // },1000, );
+    startTimer = clearInterval(startTimer);
+    start(sekund)
 })
 
 
@@ -94,7 +85,6 @@ function updateTime(secondsUpdate) {
         }
 
         elTimeText.textContent = `${minutes}:${seconds}`;
-        console.log("boldii");
     }
 }
 
@@ -105,14 +95,14 @@ function noupdateTime(minut, sekund) {
     return minutes + secundes
 }
 
-function statusbar(sekund) {
+function start(sekund) {
 
 
-setInterval(function () {
+startTimer(function () {
     sekund--
     updateTime(sekund)
 
-}, 1000,);
+}, 1000);
 }
 
 
