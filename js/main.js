@@ -15,6 +15,10 @@ elStopBtn.classList.add("none");
 
 updateTime(sekund)
 
+if (sekund === 0) {
+    sekund = 1500
+}
+
 //forum add
 elSettingBtn.addEventListener("click", () => {
     elForm.classList.remove("none");
@@ -49,7 +53,8 @@ elStartBtn.addEventListener("click", () => {
     elStopBtn.classList.remove("none");
 
     console.log(sekund);
-    start(sekund)
+    statusbar(sekund)
+
 
 })
 
@@ -58,8 +63,14 @@ elStopBtn.addEventListener("click", () => {
     elStopBtn.classList.add("none");
     elStartBtn.classList.remove("none");
 
-    startTimer = clearInterval(startTimer);
-    start(sekund)
+
+
+    setInterval = clearInterval(setInterval);
+    // setInterval(function () {
+    //     sekund
+    //     updateTime(sekund)
+
+    // },1000, );
 })
 
 
@@ -85,6 +96,7 @@ function updateTime(secondsUpdate) {
         }
 
         elTimeText.textContent = `${minutes}:${seconds}`;
+        console.log("boldii");
     }
 }
 
@@ -95,33 +107,16 @@ function noupdateTime(minut, sekund) {
     return minutes + secundes
 }
 
-function start(sekund) {
+function statusbar(sekund) {
 
 
-startTimer(function () {
+setInterval(function () {
     sekund--
     updateTime(sekund)
 
-}, 1000);
+}, 1000,);
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-// let add = new Date()
-// console.log(add);
-// console.log(new Date("October 11 , 2001"));
-
-// const today = new Date(2022, 1, 29, 10, 23)
-// console.log(today);
-// console.log(today.getFullYear())
-// console.log(today.getMonth());
